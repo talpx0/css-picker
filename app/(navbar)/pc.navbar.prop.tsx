@@ -66,19 +66,19 @@ export const Collapsedprops:Collapsedprop[] = [
     {
         icon: <WReactJS />,
         activeIcon: <BReactJS />,
-        link: "/reactpage",
+        link: "/-react",
         id: 2
     },
     {
         icon:<WTypeScript />,
         activeIcon: <BTypeScript />,
-        link: "/typescriptpage",
+        link: "/-typescript",
         id: 3 
     },
     {
         icon:<WNodeJS />,
         activeIcon: <BNodeJS />,
-        link: "/nodejspage",
+        link: "/-nodejs",
         id: 4
     }
 ]
