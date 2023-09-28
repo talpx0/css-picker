@@ -1,15 +1,10 @@
-.main{
-  display: grid;
-  grid-template-columns: auto auto;
-}
+
 
 
 .container {
   display: flex;
   flex-wrap: wrap;
   height: 100%;
-  margin-top: 72px;
-  margin-left: 72px;
   .box{
     flex: 0 0 20%;
     display: flex;
@@ -19,6 +14,7 @@
     div{
       height: 128px;
       width: 128px;
+      background-color: white;
       border-radius: 5px;
       display: flex;
       align-items: center;

@@ -2,34 +2,18 @@
 .expanded{
     display: flex;
     width: 100%; 
-    position: fixed;
+    flex-direction: column;
     align-items: center;
-    height: 60px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    background-image: var(--global_image);
-    .globalButton{
-        width: 72px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        div{
-            width: 42px;
-            height: 42px;
-            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            svg{
-                width: 28px;
-                height: 28px;
-            }
-        }
-    }
+    position: sticky;
+    top: 0;
     .expandedNavbar{
         display: flex;
+        width: calc(100% - 72px);
+        margin-left: 72px;
+        height: 64px;
+        justify-content: space-around;
         align-items: center;
-        border-bottom: 1px solid grey;
+        background-image: var(--global_image);
         .webName{
             font-weight: bold;
         }
@@ -43,60 +27,27 @@
     
 }
 
-.collapsed{
+
+.globalButton{
+    width: 72px;
     display: flex;
-    width: 100%; 
-    position: fixed;
     align-items: center;
-    height: 60px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    background-image: var(--global_image);
-    .globalButton{
-        width: 72px;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    div{
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        div{
-            width: 42px;
-            height: 42px;
-            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            svg{
-                width: 28px;
-                height: 28px;
-            }
+        svg{
+            width: 28px;
+            height: 28px;
         }
     }
 }
-
-
-.hidden{
-    .globalButton{
-        width: 72px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        z-index: 1;
-        div{
-            width: 52px;
-            height: 52px;
-            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            svg{
-                width: 28px;
-                height: 28px;
-            }
-        }
-    }
-}
-
 
 
 .collapsedNav{
@@ -104,6 +55,9 @@
     display: flex;
     height: 54px;
     align-items: center;
+    border-top: 1px solid grey;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    background-image: var(--global_image);
     header:nth-of-type(1){
         flex: 0 0 60%;
         display: flex;
@@ -122,11 +76,11 @@
 
 .sidebar{    
     font-size: 11px;
-    border-right: rgba(0, 0, 0, 0.12) 0px 1px 3px;
+    border-right: 1px solid gray ;
     display: flex;
+    height: 100vh;
     flex-direction: column;
     position: fixed;
-    margin-top: 72px;
     svg{
         width: 28px;
         height: 28px;

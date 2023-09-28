@@ -4,8 +4,6 @@ import { CollapsedSidebar, GlobalBar  } from './(navbar)/pc.navbar'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
       <BoxContainter />
-    </main>
   )
 }
