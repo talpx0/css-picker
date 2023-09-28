@@ -82,14 +82,6 @@ export const GlobalBar =({children}:{children: ReactNode})=> {
 export const ExpandedNavbar =({state}:{state: NavbarState})=> {
     const pathName = usePathname()
     const [isActive, setIsActive] = useState<number>(null!)
-    useEffect(() => {
-        Collapsedprops.forEach(item => {
-            if (pathName === item.link) {
-                setIsActive(item.id)
-            }
-        })
-    }, [pathName])
-    console.log(isActive);
     return(
         <>
             {state.sidebarState === "expanded" &&
@@ -102,7 +94,7 @@ export const ExpandedNavbar =({state}:{state: NavbarState})=> {
              {(state.sidebarState === "collapsed" || state.sidebarState ===  "expanded") && <nav className={styles.collapsedNav}>
             <header>
                 {Collapsedprops.map((item)=> <Link href={item.link} key={item.id} >               
-                        {isActive === item.id ? item.activeIcon : item.icon}
+                        {pathName === item.link ? item.activeIcon : item.icon}
                 </Link>)}
             </header>
         </nav>}
