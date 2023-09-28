@@ -89,6 +89,7 @@ export const ExpandedNavbar =({state}:{state: NavbarState})=> {
             }
         })
     }, [pathName])
+    console.log(isActive);
     return(
         <>
             {state.sidebarState === "expanded" &&
@@ -98,7 +99,7 @@ export const ExpandedNavbar =({state}:{state: NavbarState})=> {
                     )}
                 </nav>
             }
-             {(state.sidebarState === "collapsed" || "expanded") && <nav className={styles.collapsedNav}>
+             {state.sidebarState === "collapsed" || state.sidebarState ===  "expanded"&& <nav className={styles.collapsedNav}>
             <header>
                 {Collapsedprops.map((item)=> <Link href={item.link} key={item.id} >               
                         {isActive === item.id ? item.activeIcon : item.icon}
