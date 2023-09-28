@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <GlobalBar>
-          {children}
+          <div className='globalmargin'>
+            {children}
+          </div>
         </GlobalBar> 
       </body>
     </html>
