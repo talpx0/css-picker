@@ -36,13 +36,13 @@ export const BoxContainter =()=> {
     const hideToast =()=> setToast({
         id: null,
         isClicked: false
-        });
+        })
     return( 
         <>
             <section className={styles.container}>
                 {boxShadows.map((boxShadow, key)=> <section key={boxShadow.id} className={styles.box}>
                     <div style={{boxShadow: boxShadow.name}} onClick={
-                        ()=> navigator.clipboard.writeText(`box-shadow: ${boxShadow.name}`)
+                        ()=> navigator.clipboard.writeText(`box-shadow: ${boxShadow.name};`)
                                 .then(() => setToast({
                                     id: boxShadow.id,
                                     isClicked: true})

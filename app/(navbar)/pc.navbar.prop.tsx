@@ -1,6 +1,7 @@
 import {ReactElement} from 'react'
 import { WTypeScript, WCSS, WNodeJS, WReactJS } from '@/public/svg/whiteIcon'
-import { BTypeScript, BCSS, BNodeJS, BReactJS } from '@/public/svg/whiteIcon'
+import { BTypeScript, BCSS, BNodeJS,  } from '@/public/svg/whiteIcon'
+import {SiPreact as BReactJS} from "react-icons/si"
 import { Animation, Responsive } from '@/public/svg/sidebar'
 import {RxShadow} from "react-icons/rx"
 import {IoColorPaletteOutline} from "react-icons/io5"
@@ -20,6 +21,11 @@ type SidebarProps = {
     component?: ReactElement
 }
 
+type ExpandProps = {
+    id: number;
+    name: string;
+    link: string;
+}
 
 
 export const SidebarProps:SidebarProps[] = [
@@ -60,26 +66,28 @@ export const Collapsedprops:Collapsedprop[] = [
     {
         icon: <WReactJS />,
         activeIcon: <BReactJS />,
-        link: "./reactPage",
+        link: "/reactPage",
         id: 2
     },
     {
         icon:<WTypeScript />,
         activeIcon: <BTypeScript />,
-        link: "./typescriptPage",
+        link: "/typescriptPage",
         id: 3 
     },
     {
         icon:<WNodeJS />,
         activeIcon: <BNodeJS />,
-        link: "./nodejsPage",
+        link: "/nodejsPage",
         id: 4
     }
 ]
 
 
-export const ExpandedProp = [
-    {
-        
-    }
+export const ExpandedProps: ExpandProps[] = [
+    { id: 1, name: 'Documentation', link: '/documentation' },
+    { id: 2, name: 'Products', link: '/products' },
+    { id: 3, name: 'Forums', link: '/forums' },
+    { id: 4, name: 'Widget', link: '/widget' },
+    { id: 5, name: 'Tutorial', link: '/tutorial' }
 ]

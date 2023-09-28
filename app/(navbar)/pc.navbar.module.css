@@ -1,11 +1,14 @@
 
-.globalNavbar{
+.expanded{
     display: flex;
     width: 100%; 
     position: fixed;
+    align-items: center;
+    height: 60px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    background-image: var(--global_image);
     .globalButton{
         width: 72px;
-        height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -23,8 +26,77 @@
             }
         }
     }
-
+    .expandedNavbar{
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid grey;
+        .webName{
+            font-weight: bold;
+        }
+        button{
+            font-size: 16px;
+            border: none;
+            background-color: transparent;
+            margin: 0 10px;
+        }
+    }
+    
 }
+
+.collapsed{
+    display: flex;
+    width: 100%; 
+    position: fixed;
+    align-items: center;
+    height: 60px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    background-image: var(--global_image);
+    .globalButton{
+        width: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div{
+            width: 42px;
+            height: 42px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg{
+                width: 28px;
+                height: 28px;
+            }
+        }
+    }
+}
+
+
+.hidden{
+    .globalButton{
+        width: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 1;
+        div{
+            width: 52px;
+            height: 52px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg{
+                width: 28px;
+                height: 28px;
+            }
+        }
+    }
+}
+
 
 
 .collapsedNav{
@@ -32,7 +104,6 @@
     display: flex;
     height: 54px;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     header:nth-of-type(1){
         flex: 0 0 60%;
         display: flex;

@@ -1,4 +1,6 @@
-
+:root{
+    --global_image: linear-gradient(135deg, #F3EAF3 0%, #DCE7F9 100%);
+}
 
 * {
   box-sizing: border-box;

@@ -1,7 +1,7 @@
 'use client'
 import { useReducer, Reducer, useEffect, useState  } from "react"
 import {BsWindowSidebar,  BsFullscreen, BsLayoutSidebar} from "react-icons/bs"
-import { Collapsedprops, SidebarProps } from "./pc.navbar.prop"
+import { Collapsedprops, SidebarProps, ExpandedProps } from "./pc.navbar.prop"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import styles from "./pc.navbar.module.css"
@@ -29,7 +29,6 @@ const Expanded: NavbarState = {
     next: () => ({ ...Collapsed}) 
 }
 
-
 const FullScreen: NavbarState = {
     navbarState: "hidden",
     sidebarState: "hidden",
@@ -44,7 +43,6 @@ const Collapsed: NavbarState = {
     next: () => ({ ...FullScreen}) 
 }
 
-
 const reducer: Reducer<NavbarState, BarAction> = (state: NavbarState, action: BarAction): NavbarState=> {
     switch (action.type) {
         case 'NEXT': {
@@ -53,28 +51,18 @@ const reducer: Reducer<NavbarState, BarAction> = (state: NavbarState, action: Ba
     }
     throw Error('Unknown action: ' + action.type);
 }
-
 // const initialState:NavbarState = JSON.parse(localStorage.getItem("navBarState") as string) || Expanded
 
 export const GlobalBar =()=> {
     const [state, dispatch] = useReducer(reducer, Expanded)
-    const pathName = usePathname()
-    const [isActive, setIsActive] = useState<number>(null!)
     /*useEffect(() => {
         localStorage.setItem("navBarState", JSON.stringify(state))
     }, [state]) */
-    useEffect(() => {
-        Collapsedprops.forEach(item => {
-            if (pathName === item.link) {
-                setIsActive(item.id)
-            }
-        })
-    }, [pathName])
     const handleClick =()=>{
         dispatch({ type: 'NEXT' });
     }
     return(<main>
-            <nav className={styles.globalNavbar}>
+            <nav className={styles[state.navbarState]}>
                     <nav className={styles.globalButton}>
                         <div onClick={handleClick}>
                            {state.navbarState === "hidden" && <BsWindowSidebar />}
@@ -82,7 +70,7 @@ export const GlobalBar =()=> {
                            {state.navbarState === "collapsed" && <BsFullscreen />}
                         </div>
                     </nav>
-                    {state.navbarState === "collapsed" && <CollapsedNavbar isActive={isActive} />}
+                    {state.navbarState === "collapsed" && <CollapsedNavbar />}
                     {state.navbarState === "expanded" &&  <ExpandedNavbar />}
             </nav>
             { state.sidebarState === "expanded" && <ExpandedSidebar />  }
@@ -93,7 +81,11 @@ export const GlobalBar =()=> {
 
 export const ExpandedNavbar =()=> {
     return(
-        <nav className={styles.expandedNavbar} ></nav>
+        <nav className={styles.expandedNavbar}>
+            <nav className={styles.webName}>T A L P X</nav>
+            {ExpandedProps.map((item)=> <button key={item.id}>{item.name}</button>
+            )}
+        </nav>
     )
 }
 
@@ -105,7 +97,16 @@ export const ExpandedSidebar =()=> {
 }
 
 
-export const CollapsedNavbar =({isActive}:{isActive: number})=> {
+export const CollapsedNavbar =()=> {
+    const pathName = usePathname()
+    const [isActive, setIsActive] = useState<number>(null!)
+    useEffect(() => {
+        Collapsedprops.forEach(item => {
+            if (pathName === item.link) {
+                setIsActive(item.id)
+            }
+        })
+    }, [pathName])
     return(
         <nav className={styles.collapsedNav}>
             <header>
