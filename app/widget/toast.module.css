@@ -1,0 +1,26 @@
+.toast{
+    z-index: 2;
+    position: fixed;
+    bottom: 20vh;
+    left: 10%;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; } /* Fully visible */
+    100% { opacity: 0; }
+  }
+  
+  .toast {
+    animation: fadeInOut 1s forwards;
+    background-color: black;
+    color: white;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+  

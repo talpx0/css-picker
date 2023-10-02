@@ -64,8 +64,6 @@ export const BNodeJS =()=>{
     )
 }
 
-
-
 export const WReactJS =()=>{
     return(
         <svg fill="#000000" width="72px" height="72px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
