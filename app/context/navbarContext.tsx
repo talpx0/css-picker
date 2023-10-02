@@ -1,4 +1,5 @@
 'use client'
+import { usePathname } from 'next/navigation';
 import React, { createContext, useReducer, useContext, ReactNode, Reducer } from 'react';
 
 // Expanded: Icon + Description visible
@@ -39,6 +40,7 @@ const Collapsed: NavbarState = {
     next: () => ({ ...FullScreen}) 
 }
 
+
 const reducer: Reducer<NavbarState, BarAction> = (state: NavbarState, action: BarAction): NavbarState=> {
     switch (action.type) {
         case 'NEXT': {
@@ -48,12 +50,14 @@ const reducer: Reducer<NavbarState, BarAction> = (state: NavbarState, action: Ba
     throw Error('Unknown action: ' + action.type);
 }
 
-const NavbarContext = createContext<{ state: NavbarState; dispatch: React.Dispatch<BarAction> } | undefined>(undefined);
+const NavbarContext = createContext<{ state: NavbarState; dispatch: React.Dispatch<BarAction>, pathName: string , rootPathName: string } | undefined>(undefined);
 
 
 export const NavbarProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, Expanded);
-    const value = { state, dispatch };
+    const pathName = usePathname()
+    const rootPathName = '/' + pathName.split('/')[1];
+    const value = { state, dispatch, pathName, rootPathName };
     return <NavbarContext.Provider value={value}>{children}</NavbarContext.Provider>;
   };
 

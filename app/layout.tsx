@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { GlobalBar } from './navbar/pc.navbar'
 import { NavbarProvider } from './context/navbarContext'
+import { BodyWarpper } from './widget/aside'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavbarProvider>
           <GlobalBar />
-          {children}
+          <BodyWarpper>
+            {children}
+          </BodyWarpper>
         </NavbarProvider>
       </body>
     </html>

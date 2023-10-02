@@ -1,0 +1,36 @@
+.bodyWrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: calc(100vh - 124px);
+    max-height: 100vh;
+    .mainBody{
+        max-height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+    }
+}
+
+.sidebar{
+    flex: 0 0 72px;    
+    font-size: 11px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    display: flex;
+    flex-direction: column;
+    a{
+        height: 72px;
+        width: 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    svg{
+        width: 28px;
+        height: 28px;
+    }
+    .invertIcon{
+        filter: invert(1);
+        background-color: white;
+    }
+}

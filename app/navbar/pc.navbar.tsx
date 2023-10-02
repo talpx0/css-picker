@@ -1,13 +1,9 @@
 'use client'
 import {BsWindowSidebar,  BsFullscreen, BsLayoutSidebar} from "react-icons/bs"
-import { Collapsedprops, CssBarProps, ExpandedProps } from "./pc.navbar.prop"
-import { usePathname } from "next/navigation"
+import { Collapsedprops, ExpandedProps } from "./pc.navbar.prop"
 import Link from "next/link"
 import styles from "./pc.navbar.module.css"
 import { useNavbar } from "../context/navbarContext"
-import { SidebarProps } from "./pc.navbar.prop"
-import { ReactNode } from "react"
-
 
 export const GlobalBar =()=> {
     const { state, dispatch } = useNavbar();
@@ -29,14 +25,13 @@ export const GlobalBar =()=> {
 }
 
 export const CollapsedNavBar =()=> {
-    const pathName = usePathname()
-    const rootPath = '/' + pathName.split('/')[1];
+    const {rootPathName} = useNavbar()
     return(
         <nav className={styles.collapsedNav}>
             <nav>
                 {Collapsedprops.map((item) => 
                     <Link href={item.link} key={item.id} >               
-                        {rootPath === item.link ? item.activeIcon : item.icon}
+                        {rootPathName === item.link ? item.activeIcon : item.icon}
                     </Link>
                 )} 
             </nav>
@@ -59,30 +54,3 @@ export const ExpandedNavbar =()=> {
     )
 }
 
-
-export const BodyWarpper =({children, props}:{children: ReactNode, props: SidebarProps[]})=>{
-    const {state} = useNavbar()
-    return(
-        <section className={styles.bodyWrapper}>
-            {(state.navbarState === "collapsed" || state.navbarState ===  "expanded") && <CollapsedSidebar props={props}/>}
-            {children}
-        </section>
-    )
-}
-
-
-export const CollapsedSidebar =({props}:{props: SidebarProps[]})=> {
-    const pathName = usePathname()
-    return( 
-        <aside className={styles.sidebar}>
-            {props.map((item)=> <Link 
-                href={item.link!} 
-                key={item.id}
-                className={styles[pathName === item.link ? 'invertIcon': 'icon']}>
-                    <div>{item.icon}</div>
-                    <div>{item.name}</div>
-                </Link>
-            )}
-        </aside>
-    )
-}
