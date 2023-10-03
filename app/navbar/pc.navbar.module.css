@@ -7,16 +7,15 @@
     width: 100% ;
     padding-left: 72px;
     height: 64px;
-    justify-content: space-around;
     align-items: center;
-    background-image: var(--global_image);
+    background-image: var(--global-image);
+    color: var(--text-color);
     .webName{
         font-weight: bold;
     }
     .hoverLink {
         position: relative;
         text-decoration: none;
-        color: black;
         display: block;
         padding-bottom: 5px ;
         font-size: 14px;
@@ -31,6 +30,28 @@
     width: 0;
     transition: width 0.3s ease-in-out;
     }
+    nav:nth-of-type(1){
+        flex: 0 0 70%;
+        display: flex;
+        justify-content: space-around;
+    }
+    nav:nth-of-type(2){
+        flex: 0 0 30%;
+        display: flex;
+        justify-content: space-around;
+        button{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            border: none;
+            background-image: var(--global-image);
+        }
+        svg{
+            color: var(--text-color);
+            font-size: 22px;
+        }
+
+    }
 }
 
 .hoverLink:hover .bar {
@@ -40,68 +61,63 @@
 .collapsedNav{
     width: 100%;
     display: flex;
-    height: 60px;
+    height: 50px;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    background-image: var(--global_image);
+    background-image: var(--global-image);
+    position: sticky;
+    color: var(--text-color);
+    top: 64px;
     nav:nth-of-type(1){
         flex: 0 0 60%;
         display: flex;
         justify-content: space-around;
     }
     svg{
-        width: 36px;
-        height: 36px;
+        color: var(--text-color)  ;
+        width: 28px;
+        height: 28px;
     }
 }    
 
+.collapsed{
+    top: 0px;
+}
+
 .globalButton{
-    width: 50px;
-    height: 50px;
     margin: 5px 0 0 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: var(--global_image);
+    background-image: var(--global-image);
     border-radius: 50%;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
+    color: var(--text-color);
     div{
         display: flex;
         align-items: center;
         justify-content: center;
         svg{
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
         }
     }
 }
 
-
-.sidebar{    
-    font-size: 11px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    a{
-        height: 72px;
-        width: 72px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    svg{
-        width: 28px;
-        height: 28px;
-    }
-    .invertIcon{
-        filter: invert(1);
-        background-color: white;
-    }
+.expandedButton{
+    width: 50px;
+    height: 50px;
 }
 
+.collapsedButton{
+    width: 40px;
+    height: 40px;
+}
 
+.hiddenButton{
+    width: 52px;
+    height: 52px;
+}

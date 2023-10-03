@@ -1,6 +1,7 @@
 import {ReactElement} from 'react'
-import { WTypeScript, WCSS, WNodeJS, WReactJS } from '@/public/svg/whiteIcon'
 import { BTypeScript, BCSS, BNodeJS,  } from '@/public/svg/whiteIcon'
+import {BiLogoReact, BiLogoNodejs, } from 'react-icons/bi'
+import {TbBrandTypescript, TbFileTypeCss} from 'react-icons/tb'
 import {SiPreact as BReactJS} from "react-icons/si"
 type Collapsedprop = {
     icon: ReactElement
@@ -17,25 +18,25 @@ type ExpandProps = {
 
 export const Collapsedprops:Collapsedprop[] = [
     {
-        icon: <WCSS />,
+        icon: <TbFileTypeCss />,
         activeIcon: <BCSS />,
         link: "/css",
         id: 1
     },
     {
-        icon: <WReactJS />,
+        icon: <BiLogoReact />,
         activeIcon: <BReactJS />,
         link: "/react",
         id: 2
     },
     {
-        icon:<WTypeScript />,
+        icon:<TbBrandTypescript />,
         activeIcon: <BTypeScript />,
         link: "/typescript",
         id: 3 
     },
     {
-        icon:<WNodeJS />,
+        icon:<BiLogoNodejs />,
         activeIcon: <BNodeJS />,
         link: "/nodejs",
         id: 4

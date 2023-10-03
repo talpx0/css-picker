@@ -1,7 +1,17 @@
-:root{
-    --global_image: linear-gradient(135deg, #F3EAF3 0%, #DCE7F9 100%);
+:root {
+  --global-image: linear-gradient(135deg, #F3EAF3 0%, #DCE7F9 100%);
+  --text-color: black;
+  --button-background: #eeeeee;
+  --button-text-color: #000000;
 }
 
+[data-theme="dark"] {
+  --global-image: linear-gradient(135deg, #12100E 0%, #2B4162 100%);
+  --background-color: #000000;
+  --text-color:  white;
+  --button-background: #333333;
+  --button-text-color: #ffffff;
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -11,7 +21,8 @@
 html,
 body {
   max-width: 100vw;
-  background-image: linear-gradient(135deg, #F3EAF3 0%, #DCE7F9 100%);
+  height: 100vh;
+  background-image: var(--global-image)
 }
 
 
@@ -20,6 +31,3 @@ a {
   text-decoration: none;
 }
 
-.globalmargin{
-  margin-left: 72px;
-}

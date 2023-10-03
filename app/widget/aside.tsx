@@ -31,9 +31,9 @@ export const BodyWarpper =({children}:{children: ReactNode})=>{
 }
 
 export const CollapsedSidebar =({props}:{props: SidebarProps[]})=> {
-    const {pathName} = useNavbar()
+    const {pathName, state} = useNavbar()
     return( 
-        <aside className={styles.sidebar}>
+        <section className={`${styles.sidebar} ${styles[state.sidebarState]}`}>
             {props.map((item)=> <Link 
                 href={item.link!} 
                 key={item.id}
@@ -42,6 +42,6 @@ export const CollapsedSidebar =({props}:{props: SidebarProps[]})=> {
                     <div>{item.name}</div>
                 </Link>
             )}
-        </aside>
+        </section>
     )
 }
